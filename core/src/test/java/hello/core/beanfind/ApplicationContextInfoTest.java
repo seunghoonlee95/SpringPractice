@@ -20,6 +20,7 @@ public class ApplicationContextInfoTest {
         }
     }
 
+    //우리가 직접 생성/지정한 Bean들만 출력하기(ROLE_APPLICAITON)
     @Test
     @DisplayName("애플리케이션 빈 출력하기")
     void findApplicationBean() {
@@ -27,7 +28,7 @@ public class ApplicationContextInfoTest {
         for (String beanDefinitionName : beanDefinitionNames) {
             BeanDefinition beanDefinition = ac.getBeanDefinition(beanDefinitionName);
 
-            //우리가 직접 생성/지정한 Bean들만 출력하기(ROLE_APPLICAITON)
+
             if (beanDefinition.getRole() == BeanDefinition.ROLE_APPLICATION) {
                 Object bean = ac.getBean(beanDefinitionName);
                 System.out.println("name = " + beanDefinitionName + " object = " + bean);
